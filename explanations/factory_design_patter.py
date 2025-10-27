@@ -26,7 +26,7 @@ class Cappuccino(Coffee):
 
 # Step 3: Implement the Factory (CoffeeMachine)
 class CoffeeMachine:
-    def make_coffee(self, coffee_type):
+    def make_coffee(self, coffee_type :str) -> str:
         if coffee_type == "Espresso":
             return Espresso().prepare()
         elif coffee_type == "Latte":

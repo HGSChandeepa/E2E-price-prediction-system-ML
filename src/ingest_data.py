@@ -19,7 +19,7 @@ class ZipDataIngestor(DataIngestor):
         """Extracts a .zip file and returns the content as a pandas DataFrame."""
         # Ensure the file is a .zip
         if not file_path.endswith(".zip"):
-            raise ValueError("The provided file is not a .zip file.")
+            raise ValueError(f"The provided file is not a .zip file: {file_path}")  
 
         # Extract the zip file
         with zipfile.ZipFile(file_path, "r") as zip_ref:
@@ -55,18 +55,18 @@ class DataIngestorFactory:
 
 # Example usage:
 if __name__ == "__main__":
-    # # Specify the file path
-    # file_path = "/Users/samin/Desktop/end-to-end-production-grade-projects/prices-predictor-system/data/archive.zip"
+    # Specify the file path
+    file_path = "D:\\Self study\\Deep Learning\\End To End ML Projects\\prices-predictor-system\data\\archive.zip"
 
-    # # Determine the file extension
-    # file_extension = os.path.splitext(file_path)[1]
+    # Determine the file extension
+    file_extension = os.path.splitext(file_path)[1]
 
-    # # Get the appropriate DataIngestor
-    # data_ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
+    # Get the appropriate DataIngestor
+    data_ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
 
-    # # Ingest the data and load it into a DataFrame
-    # df = data_ingestor.ingest(file_path)
+    # Ingest the data and load it into a DataFrame
+    df = data_ingestor.ingest(file_path)
 
-    # # Now df contains the DataFrame from the extracted CSV
-    # print(df.head())  # Display the first few rows of the DataFrame
+    # Now df contains the DataFrame from the extracted CSV
+    print(df.head())  # Display the first few rows of the DataFrame
     pass
